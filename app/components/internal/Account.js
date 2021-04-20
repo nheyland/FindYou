@@ -1,10 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 
-const Login = (props) => {
+const Account = (props) => {
   return (
     <View style={styles.container}>
-      <Text>Hello Wolrd</Text>
+      <Text>Account</Text>
     </View>
   );
 };
@@ -13,4 +13,4 @@ const styles = StyleSheet.create({
   container: {},
 });
 
-export default Login;
+export default Account;
