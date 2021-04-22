@@ -1,16 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import "react-native-gesture-handler";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Login from "./app/components/external/Login";
 import Welcome from "./app/components/internal/Welcome";
 import Register from "./app/components/external/Register";
-import colors from "./app/tools/colors";
 
 export default function App() {
   const [auth, setAuth] = useState(false);
+
   const Stack = createStackNavigator();
   return (
     <NavigationContainer>
@@ -31,7 +30,9 @@ export default function App() {
             </Stack.Screen>
           </>
         ) : (
-          <Stack.Screen name="Welcome" component={Welcome} />
+          <Stack.Screen name="Welcome">
+            {(props) => <Welcome {...props} component={Welcome} />}
+          </Stack.Screen>
         )}
       </Stack.Navigator>
     </NavigationContainer>

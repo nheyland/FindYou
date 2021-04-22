@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -11,6 +11,8 @@ import Host from "./Host";
 
 const Welcome = (props) => {
   const Tab = createBottomTabNavigator();
+  const [tabBarVis, setTabBarVis] = useState(true);
+
   return (
     <Tab.Navigator
       tabBarOptions={{
@@ -31,13 +33,18 @@ const Welcome = (props) => {
       />
       <Tab.Screen
         name="Host"
-        component={Host}
         options={{
+          tabBarVisible: tabBarVis,
           tabBarIcon: ({ size, color }) => (
             <AntDesign name="videocamera" size={30} color="black" />
           ),
         }}
-      />
+      >
+        {(props) => (
+          <Host {...props} setTabBarVis={setTabBarVis} tabBarVis={tabBarVis} />
+        )}
+      </Tab.Screen>
+
       <Tab.Screen
         name="Join"
         component={Join}

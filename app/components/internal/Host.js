@@ -1,8 +1,13 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
+import UserCam from "./Host/UserCam";
 
-const Host = (props) => {
-  return <View style={styles.container}></View>;
+const Host = ({ tabBarVis, setTabBarVis }) => {
+  return (
+    <>
+      <UserCam tabBarVis={tabBarVis} setTabBarVis={setTabBarVis} />
+    </>
+  );
 };
 
 const styles = StyleSheet.create({
